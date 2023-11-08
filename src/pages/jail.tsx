@@ -334,7 +334,7 @@ const JuniorGames = () => {
                     }
                   }}
                 >
-                  <h1 className="text-center w-full text-3xl ">Excuse</h1>
+                  <h1 className="text-center w-full text-3xl ">Release</h1>
                 </button>
                 
               </div>
