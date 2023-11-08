@@ -62,7 +62,7 @@ const JuniorGames = () => {
             <h1 className="text-white text-4xl">Ranking</h1>
           </div>
           <div className="flex flex-row w-1/5 justify-end">
-            <h1 className="text-white text-4xl">Kills</h1>
+            <h1 className="text-white text-4xl">Eliminations</h1>
           </div>
         </div>
         {countKillers(data)
