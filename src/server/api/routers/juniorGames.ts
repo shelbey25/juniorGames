@@ -45,4 +45,16 @@ export const juniorGamesRouter = createTRPCRouter({
       });
       return { success: true, modEvent: modEventInDb };
     }),
+    releaseAll: publicProcedure
+    .mutation(async ({ ctx }) => {
+      const modEventInDb = await ctx.db.juniorGames.updateMany({
+        where: {
+          active: true,
+        },
+        data: {
+          active: false,
+        },
+      });
+      return { success: true, modEvent: modEventInDb };
+    }),
 });
