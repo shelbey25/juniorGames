@@ -259,13 +259,13 @@ const JuniorGames = () => {
       </div>
       <div className={`flex p-1 rounded-sm flex-row justify-between w-full`}>
         <div className="w-1/4">
-          <h1 className="text-white">Prisoner:</h1>
+          <h1 className="text-white text-3xl">Prisoner:</h1>
         </div>
         <div className="w-1/4">
-          <h1 className="text-white">Eliminated By:</h1>
+          <h1 className="text-white text-3xl">Eliminated By:</h1>
         </div>
         <div className="w-1/4">
-          <h1 className="text-white">Time:</h1>
+          <h1 className="text-white text-3xl">Time:</h1>
         </div>
         <div className={`flex  w-1/5 rounded-sm `}></div>
       </div>
@@ -296,13 +296,13 @@ const JuniorGames = () => {
                 key={playerEvent.id}
               >
                 <div className="w-1/4">
-                  <h1 className="text-white">{playerEvent.personCaught}</h1>
+                  <h1 className="text-white text-3xl">{playerEvent.personCaught}</h1>
                 </div>
                 <div className="w-1/4">
-                  <h1 className="text-white">{playerEvent.killer}</h1>
+                  <h1 className="text-white text-3xl">{playerEvent.killer}</h1>
                 </div>
                 <div className="w-1/4">
-                  <h1 className="text-white">
+                  <h1 className="text-white text-3xl">
                     {playerEvent.timeCaught.getHours()%12 === 0 ? 12 : playerEvent.timeCaught.getHours()%12}:{playerEvent.timeCaught.getMinutes() < 10 ? "0" + playerEvent.timeCaught.getMinutes() : playerEvent.timeCaught.getMinutes()} { playerEvent.timeCaught.getHours() >= 12 ? 'PM' : 'AM'}
                   </h1>
                 </div>
@@ -334,7 +334,7 @@ const JuniorGames = () => {
                     }
                   }}
                 >
-                  <h1 className="text-center w-full ">Excuse</h1>
+                  <h1 className="text-center w-full text-3xl ">Excuse</h1>
                 </button>
                 
               </div>

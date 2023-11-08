@@ -53,16 +53,16 @@ const JuniorGames = () => {
   }
   return (
     <div className="min-h-screen min-w-screen h-full w-full bg-black p-4">
-      <h1 className="text-white text-5xl text-center">
+      <h1 className="text-white text-8xl text-center">
         Junior Games Leaderboard
       </h1>
       <div className="w-full pt-8">
         <div className="flex flex-row w-full justify-center">
-          <div className="flex flex-row w-1/5">
-            <h1 className="text-white text-4xl">Ranking</h1>
+          <div className="flex flex-row w-1/4">
+            <h1 className="text-white text-7xl">Ranking</h1>
           </div>
-          <div className="flex flex-row w-1/5 justify-end">
-            <h1 className="text-white text-4xl">Eliminations</h1>
+          <div className="flex flex-row w-1/4 justify-end">
+            <h1 className="text-white text-7xl">Eliminations</h1>
           </div>
         </div>
         {countKillers(data)
@@ -73,13 +73,13 @@ const JuniorGames = () => {
                 className="flex flex-row w-full justify-center pt-4"
                 key={killer.name}
               >
-                <div className="flex flex-row w-[30%]">
-                  <h1 className="text-white text-2xl">
+                <div className="flex flex-row w-[40%]">
+                  <h1 className="text-white text-5xl">
                     {key + 1}. {killer.name}
                   </h1>
                 </div>
                 <div className="flex flex-row w-[10%] justify-end">
-                  <h1 className="text-white text-2xl">{killer.kills}</h1>
+                  <h1 className="text-white text-5xl">{killer.kills}</h1>
                 </div>
               </div>
             );
