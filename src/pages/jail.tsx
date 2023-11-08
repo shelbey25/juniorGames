@@ -12,7 +12,7 @@ const JuniorGames = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCount((count + 1) % 20);
-      refetch();
+      void refetch();
     }, 1000);
     return () => {
       clearTimeout(timer);
@@ -28,11 +28,29 @@ const JuniorGames = () => {
       await refetch();
     },
   });
-  const checkIfValid = (playerEvent: any, data: any) => {
+  const checkIfValid = (playerEvent: {
+    id: number;
+    personCaught: string;
+    killer: string;
+    timeCaught: Date;
+    active: boolean;
+}, data: {
+    id: number;
+    personCaught: string;
+    killer: string;
+    timeCaught: Date;
+    active: boolean;
+}[]) => {
     return (
       new Date().getTime() - playerEvent.timeCaught.getTime() < 7 * 60 * 1000 &&
       data.filter(
-        (miniEvent: any) =>
+        (miniEvent: {
+            id: number;
+            personCaught: string;
+            killer: string;
+            timeCaught: Date;
+            active: boolean;
+        }) =>
           miniEvent.personCaught === playerEvent.killer && miniEvent.active
       ).length === 0
     );

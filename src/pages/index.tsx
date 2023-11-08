@@ -12,18 +12,30 @@ const JuniorGames = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCount((count + 1) % 20);
-      refetch();
+      void refetch();
     }, 1000);
     return () => {
       clearTimeout(timer);
     };
   }, [count]);
 
-  const countKillers = (killerData: any) => {
+  const countKillers = (killerData: {
+    id: number;
+    personCaught: string;
+    killer: string;
+    timeCaught: Date;
+    active: boolean;
+}[]) => {
     const newKillerData: { name: string; kills: number }[] = [];
-    killerData.forEach((killer: any) => {
+    killerData.forEach((killer: {
+      id: number;
+      personCaught: string;
+      killer: string;
+      timeCaught: Date;
+      active: boolean;
+  }) => {
       let found = false;
-      newKillerData.forEach((item: any) => {
+      newKillerData.forEach((item: { name: string; kills: number }) => {
         if (item.name === killer.killer) {
           found = true;
           item.kills += 1;
