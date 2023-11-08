@@ -259,7 +259,7 @@ const JuniorGames = () => {
       </div>
       <div className={`flex p-1 rounded-sm flex-row justify-between w-full`}>
         <div className="w-1/4">
-          <h1 className="text-white">Prison:</h1>
+          <h1 className="text-white">Prisoner:</h1>
         </div>
         <div className="w-1/4">
           <h1 className="text-white">Eliminated By:</h1>
