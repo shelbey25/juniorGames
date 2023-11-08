@@ -6,7 +6,7 @@ import { api } from "../utils/api";
 
 
 const JuniorGames = () => {
-  const { data, refetch } = api.juniorGames.getAll.useQuery();
+  const { data, refetch} = api.juniorGames.getAll.useQuery();
   const [count, setCount] = useState(0);
 
   useEffect(() => {

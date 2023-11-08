@@ -5,8 +5,8 @@ import {
 } from "../trpc";
 
 export const juniorGamesRouter = createTRPCRouter({
-  getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.juniorGames.findMany({});
+  getAll: publicProcedure.query(({ctx }) => {
+    return ctx.db.juniorGames.findMany({});
   }),
   addEntry: publicProcedure
     .input(
@@ -17,7 +17,7 @@ export const juniorGamesRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       const { personCaught, killer } = input;
-      const modEventInDb = await ctx.prisma.juniorGames.create({
+      const modEventInDb = await ctx.db.juniorGames.create({
         data: {
           killer: killer,
           personCaught: personCaught,
@@ -35,7 +35,7 @@ export const juniorGamesRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       const { id } = input;
-      const modEventInDb = await ctx.prisma.juniorGames.update({
+      const modEventInDb = await ctx.db.juniorGames.update({
         where: {
           id: id,
         },
