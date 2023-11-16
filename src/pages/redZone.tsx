@@ -206,7 +206,7 @@ const JuniorGames = () => {
   return (
     <div className="min-h-screen min-w-screen h-full w-full bg-black p-4">
       <h1 className="text-white text-5xl text-center">
-        Junior Games Jail System
+        Junior Games Red Zone System
       </h1>
       <div className="flex flex-row gap-x-8 py-16 justify-center">
         <div className="w-1/3 flex flex-col"><input
@@ -254,7 +254,7 @@ const JuniorGames = () => {
                     releaseAll.mutate();
                   }}}
                 >
-                  <h1 className="text-center w-full ">Jail Break</h1>
+                  <h1 className="text-center w-full ">Red Zone Break</h1>
                 </button></div>
       </div>
       <div className={`flex p-1 rounded-sm flex-row justify-between w-full`}>
