@@ -185,7 +185,7 @@ const JuniorGames = () => {
     active: boolean;
 }[]) => {
     return (
-      new Date().getTime() - playerEvent.timeCaught.getTime() < 7 * 60 * 1000 &&
+      new Date().getTime() - playerEvent.timeCaught.getTime() < 5 * 60 * 1000 &&
       data.filter(
         (miniEvent: {
             id: number;
@@ -284,7 +284,7 @@ const JuniorGames = () => {
               <div
                 className={`flex ${
                   new Date().getTime() - playerEvent.timeCaught.getTime() <
-                    7 * 60 * 1000 &&
+                    5 * 60 * 1000 &&
                   data.filter(
                     (miniEvent) =>
                       miniEvent.personCaught === playerEvent.killer &&
@@ -309,7 +309,7 @@ const JuniorGames = () => {
                 <button
                   className={`flex ${
                     new Date().getTime() - playerEvent.timeCaught.getTime() <
-                      7 * 60 * 1000 &&
+                      5 * 60 * 1000 &&
                     data.filter(
                       (miniEvent) =>
                         miniEvent.personCaught === playerEvent.killer &&
@@ -321,7 +321,7 @@ const JuniorGames = () => {
                   onClick={() => {
                     if (
                       new Date().getTime() - playerEvent.timeCaught.getTime() <
-                        7 * 60 * 1000 &&
+                        5 * 60 * 1000 &&
                       data.filter(
                         (miniEvent) =>
                           miniEvent.personCaught === playerEvent.killer &&
