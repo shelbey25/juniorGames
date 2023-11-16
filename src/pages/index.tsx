@@ -8,6 +8,7 @@ import { api } from "../utils/api";
 const JuniorGames = () => {
   const { data, refetch} = api.juniorGames.getAll.useQuery();
   const [count, setCount] = useState(0);
+  const startTime = {hour: 21, minute: 15}
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,6 +19,11 @@ const JuniorGames = () => {
       clearTimeout(timer);
     };
   }, [count]);
+
+  const getPointValue = (time: Date) => {
+    const minSinceStart = (time.getHours() - startTime.hour)*60 + (time.getMinutes()-startTime.minute)
+    return Math.floor(10/(1+Math.pow(Math.E, -(minSinceStart/24-2.3)))+1)
+  }
 
   const countKillers = (killerData: {
     id: number;
@@ -38,11 +44,11 @@ const JuniorGames = () => {
       newKillerData.forEach((item: { name: string; kills: number }) => {
         if (item.name === killer.killer) {
           found = true;
-          item.kills += 1;
+          item.kills += getPointValue(killer.timeCaught);
         }
       });
       if (!found) {
-        newKillerData.push({ name: killer.killer, kills: 1 });
+        newKillerData.push({ name: killer.killer, kills: getPointValue(killer.timeCaught) });
       }
     });
     return newKillerData;
@@ -52,8 +58,8 @@ const JuniorGames = () => {
     return null;
   }
   return (
-    <div className="min-h-screen min-w-screen h-full w-full bg-black p-4">
-      <h1 className="text-white text-8xl text-center">
+    <div className="flex flex-col min-h-screen h-full min-w-screen w-full bg-black p-4 pb-16">
+      <header><h1 className="text-white text-8xl text-center">
         Junior Games Leaderboard
       </h1>
       <div className="w-full pt-8">
@@ -62,9 +68,12 @@ const JuniorGames = () => {
             <h1 className="text-white text-7xl">Ranking</h1>
           </div>
           <div className="flex flex-row w-1/4 justify-end">
-            <h1 className="text-white text-7xl">Eliminations</h1>
+            <h1 className="text-white text-7xl">Points</h1>
           </div>
         </div>
+        
+      </div></header>
+   
         {countKillers(data)
           ?.sort((a, b) => b.kills - a.kills)
           .map((killer, key) => {
@@ -84,7 +93,6 @@ const JuniorGames = () => {
               </div>
             );
           })}
-      </div>
     </div>
   );
 };
