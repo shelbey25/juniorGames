@@ -211,7 +211,7 @@ const JuniorGames = () => {
       <div className="flex flex-row gap-x-8 py-16 justify-center">
         <div className="w-1/3 flex flex-col"><input
           className="w-full rounded-sm p-1"
-          placeholder="Player Killed Full Name"
+          placeholder="Player Eliminated Full Name"
           value={killed}
           onChange={(e) => {
             setKilled(e.target.value);
@@ -220,7 +220,7 @@ const JuniorGames = () => {
         <h1 className={`${killed ? "text-white" : "text-black"}`}>{namesArray.filter((name) => name.toLowerCase().includes(killed.toLowerCase()))[0]}</h1></div>
         <div className="w-1/3 flex flex-col"><input
           className="w-full rounded-sm p-1"
-          placeholder="Killer Full Name"
+          placeholder="Eliminator Full Name"
           value={killer}
           onChange={(e) => {
             setKiller(e.target.value);
